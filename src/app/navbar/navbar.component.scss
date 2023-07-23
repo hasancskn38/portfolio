@@ -1,0 +1,93 @@
+/* Reset some default styling */
+body{
+  margin: 0;
+  padding: 0;
+}
+
+.padding-right-0 {
+  padding-right: 0;
+}
+
+.cursor {
+    cursor: pointer;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: calc(100vw - 128px);
+  padding: 0 64px;
+  height: 80px;
+  transition: all 225ms ease-in-out;
+  position: fixed;
+  background-color: #f8f8ee;
+}
+
+.logo {
+  font-size: 24px;
+  margin: 0;
+  color: #333;
+}
+
+ul {
+  list-style: none;
+  display: flex;
+  transition: transform 225ms ease;
+}
+
+li {
+  font-size: 20px;
+  padding: 24px;
+}
+
+/* Style for the hamburger menu icon */
+.hamburger-menu {
+  display: none;
+  /* Hide by default on larger screens */
+  cursor: pointer;
+  height: 30px;
+  width: 30px;
+}
+
+.bar {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background-color: #333;
+  margin: 5px 0;
+}
+
+/* Media query for smaller screens (e.g., mobile devices) */
+@media screen and (max-width: 768px) {
+  .hamburger-menu {
+    display: block;
+    /* Show the hamburger icon on smaller screens */
+  }
+
+  ul {
+    display: none;
+    /* Hide the menu items by default on smaller screens */
+    flex-direction: column;
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    padding: 10px;
+    background-color: #f8f8ee;
+    z-index: 1;
+  }
+
+  li {
+    font-size: 36px;
+    padding: 20px;
+  }
+
+  /* Show the menu items when the hamburger icon is clicked */
+  ul.show {
+    display: flex;
+  }
+}

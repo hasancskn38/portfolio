@@ -1,0 +1,14 @@
+<nav [@slideIn]="isMenuOpen">
+    <div class="logo">[HC]</div>
+    <div class="hamburger-menu cursor" (click)="toggleMenu()">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </div>
+    <ul [ngClass]="{'show': isMenuOpen}" (click)="closeMenu()">
+      <li class="cursor">About me</li>
+      <li class="cursor">My Projects</li>
+      <li class="cursor">Portfolio</li>
+      <li class="cursor padding-right-0">Contact me</li>
+    </ul>
+  </nav>

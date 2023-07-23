@@ -1,0 +1,14 @@
+<div class="container">
+    <div class="myskills">
+        <h2>My skills</h2>
+        <div class="icon-container">
+            <div *ngFor="let skill of skills" class="skill-container"> <!-- Add the hover-effect class to enable the animation -->
+                <!-- event bindings that trigger the showHoverImage -->
+                <img class="hover-effect" [src]="skill.imageUrl" alt="Image" (mouseenter)="showHoverImage(skill)" (mouseleave)="hideHoverImage(skill)">
+                <img class="hover-image hover-effect"  [src]="skill.hoverImageUrl" alt="Hover Image" [hidden]="!skill.showHover" [ngClass]="skill.cssClass">
+                <p>{{ skill.description }}</p>
+            </div>
+            
+        </div>
+    </div>
+</div>

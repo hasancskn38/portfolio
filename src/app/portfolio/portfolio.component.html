@@ -1,0 +1,22 @@
+<div class="portfolio-container">
+    <div class="portfolio-header">
+      <h2>Portfolio</h2>
+      <p>This page is a sample of my work - please feel free to try them out.</p>
+    </div>
+    <div class="portfolio-wrapper">
+      <div *ngFor="let project of projectCollection; let i = index" class="project-item">
+        <div [ngClass]="{ 'image-container-left': i % 2 === 0, 'image-container-right': i % 2 !== 0 }">
+          <img [src]="project.image" alt="{{ project.name }} Image">
+        </div>
+        <div class="description-container">
+          <h3>{{ project.name }}</h3>
+          <p class="languages">{{ project.languages }}</p>
+          <p>{{ project.description }}</p>
+          <button *ngFor="let button of project.buttons">
+            <a [href]="button.url" target="_blank">{{ button.text }}</a>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
