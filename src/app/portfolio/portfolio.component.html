@@ -12,7 +12,7 @@
           <h3>{{ project.name }}</h3>
           <p class="languages">{{ project.languages }}</p>
           <p>{{ project.description }}</p>
-          <button *ngFor="let button of project.buttons">
+          <button class="cursor" *ngFor="let button of project.buttons">
             <a [href]="button.url" target="_blank">{{ button.text }}</a>
           </button>
         </div>

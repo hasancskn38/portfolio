@@ -1,3 +1,7 @@
+.cursor {
+    cursor: pointer;
+}
+
 .portfolio-container {
   display: flex;
   flex-direction: column;
@@ -70,5 +74,7 @@ h3 {
 
 .portfolio-header p {
     font-size: 24px;
+    text-align: center;
+    margin: 24px 0 0 0;
 }
 

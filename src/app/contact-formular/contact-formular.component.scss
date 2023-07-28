@@ -1,13 +1,23 @@
+.cursor {
+  cursor: pointer;
+}
+
 footer {
+    clip-path: polygon(0% 0%, 100% 12%, 100% 100%, 0% 100%);
     background-color: #000;
     width: calc(100vw - 128px);
     padding: 0 64px;
   }
   
   .footer-header h2 {
+    transition: 225ms ease-in-out;
+    display: inline-block;
     color: #f8f8ee;
     font-size: 56px;
     padding: 64px 0;
+    &:hover {
+      color: #00BC8F;
+    }
   }
   
   .heading-container {
@@ -15,7 +25,7 @@ footer {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-  
+    
     .new-project-heading {
       color: #00BC8F;
       font-size: 32px;
@@ -29,6 +39,11 @@ footer {
     }
   }
   
+  .form-container {
+    display: flex;
+    justify-content: center;
+
+  }
   
   form {
     display: flex;
@@ -39,11 +54,11 @@ footer {
   
     div {
       width: calc(100vw - 128px);
-      transition: all 225ms ease-in-out;
   
       input,
       textarea {
-        cursor:pointer;
+        transition: all 225ms ease-in-out;
+        cursor: pointer;
         width: 100%;
         box-sizing: border-box;
         background-color: #000;
@@ -52,14 +67,62 @@ footer {
         padding: 24px;
         color: #f8f8ee;
         font-size: 18px;
+  
         &::placeholder {
-        color: #f8f8ee;
-        font-size: 18px;
+          color: #f8f8ee;
+          font-size: 18px;
+        }
+  
+        &:hover {
+          box-shadow: 0 0 0 4px #f8f8ee;
+        }
+  
+        &:focus {
+          box-shadow: 0 0 0 2px #f8f8ee !important;
         }
       }
-      &:hover {
-        box-shadow: 0 0 0 4px #f8f8ee;
+  
+      textarea {
+        /* Add specific styles for textarea */
+        resize: vertical; /* Allow vertical resizing */
+        min-height: 300px; /* Set a minimum height */
       }
+    }
+  
+    button {
+      /* Your existing button styles */
+      font-size: 24px;
+      padding: 16px;
+      box-shadow: 0 0 0 4px #f8f8ee;
+      background-color: #000;
+      color: #f8f8ee;
+      width: 200px;
+      padding: 16px;
+      margin: 64px;
+      transition: all 225ms ease-in-out;
+      font-weight: 400;
+    }
+  }
+
+  .input-container {
+    position: relative;
+  }
+  
+  input {
+    padding-right: 25px; /* Adjust this value based on the width of the checkmark image */
+    span {
+      color: red;
     }
   }
   
+  input[style], textarea[style] {
+    background-repeat: no-repeat;
+    background-position: right 20px center;
+    background-size: 40px 40px;
+  }
+  
+  textarea[style] {
+    background-repeat: no-repeat;
+    background-position: top 20px right 20px;
+    background-size: 40px 40px;
+  }

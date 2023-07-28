@@ -1,14 +1,40 @@
-<nav [@slideIn]="isMenuOpen">
-    <div class="logo">[HC]</div>
-    <div class="hamburger-menu cursor" (click)="toggleMenu()">
-      <span class="bar"></span>
-      <span class="bar"></span>
-      <span class="bar"></span>
-    </div>
-    <ul [ngClass]="{'show': isMenuOpen}" (click)="closeMenu()">
+<nav>
+  <div class="logo">[HC]</div>
+  <div class="hamburger-menu cursor" (click)="toggleMenu()">
+    <span class="bar"></span>
+    <span class="bar"></span>
+    <span class="bar"></span>
+  </div>
+</nav>
+
+<div class="nav-responsive" *ngIf="isNavBottomVisible">
+
+  <div class="ul-container">
+    <ul [ngClass]="{'show': isMenuOpen}">
       <li class="cursor">About me</li>
-      <li class="cursor">My Projects</li>
+      <li class="cursor">My skills</li>
       <li class="cursor">Portfolio</li>
-      <li class="cursor padding-right-0">Contact me</li>
     </ul>
-  </nav>
+  </div>
+
+  <div class="nav-bottom">
+    <div class="nav-bottom-left">
+      <h2>Say Hi !</h2>
+      <div class="copy-email">
+      <div class="email-container">
+        <p #emailContent class="email">hasan.coskun38@outlook.de</p>
+      <img (click)="copyToClipboard(emailContent)" class="cursor" src="./assets/images/copy.svg" alt="">
+      </div>
+      <div class="copied-container">
+      <p *ngIf="isCopied">Email has been copied!</p>
+      </div>
+    </div>
+    </div>
+    <div class="nav-bottom-right">
+      <a target="_blank" href=""><img src="./assets/images/linkedin.png" alt=""></a>
+      <a target="_blank" href="https://github.com/hasancskn38"><img src="./assets/images/github.png" alt=""></a>
+      <a target="_blank" href="mailto:hasan.coskun38@outlook.de"><img src="./assets/images/email.png" alt=""></a>
+    </div>
+  </div>
+
+</div>

@@ -8,8 +8,10 @@ import { MainComponent } from './main/main.component';
 import { AboutMeComponent } from './about-me/about-me.component';
 import { MySkillsComponent } from './my-skills/my-skills.component';
 import { PortfolioComponent } from './portfolio/portfolio.component';
-import { FooterComponent } from './footer/footer.component';
 import { ContactFormularComponent } from './contact-formular/contact-formular.component';
+import { FooterComponent } from './footer/footer.component';
+import { FormsModule } from '@angular/forms';
+import { ClipboardModule } from 'ngx-clipboard';
 
 @NgModule({
   declarations: [
@@ -19,13 +21,16 @@ import { ContactFormularComponent } from './contact-formular/contact-formular.co
     AboutMeComponent,
     MySkillsComponent,
     PortfolioComponent,
-    FooterComponent,
-    ContactFormularComponent
+    ContactFormularComponent,
+    ContactFormularComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule, // Make sure to include BrowserAnimationsModule here
+    BrowserAnimationsModule,
+    FormsModule,
+    ClipboardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,34 +1,42 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { trigger, state, style, animate, transition } from '@angular/animations';
-
+import { ClipboardService } from 'ngx-clipboard';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss'],
   animations: [
-    trigger('slideIn', [
-      state('in', style({ transform: 'translateX(0)' })),
-      transition('void => *', [
-        style({ transform: 'translateX(-100%)' }),
-        animate('225ms ease-in-out')
-      ]),
-      transition('* => void', [
-        animate('225ms ease-in-out', style({ transform: 'translateX(-100%)' }))
-      ])
-    ])
-  ]
+    // Your animations...
+  ],
 })
 export class NavbarComponent {
 
+  constructor(private clipboardService: ClipboardService) { }
+
   isMenuOpen: boolean = false;
+  isNavBottomVisible: boolean = false;
+  isCopied:boolean = false;
 
   toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;
+    this.isNavBottomVisible = this.isMenuOpen;
+    // Toggle the body's overflow to prevent/enable scrolling
+    document.body.style.overflow = this.isMenuOpen ? 'hidden' : 'auto';
   }
 
   closeMenu() {
     this.isMenuOpen = false;
+    this.isNavBottomVisible = false; // Hide nav-bottom when closing the menu
+    document.body.style.overflow = 'auto';
   }
 
+  copyToClipboard(element: HTMLParagraphElement) {
+    const textToCopy = element.innerHTML;
+    this.clipboardService.copyFromContent(textToCopy);
+    this.isCopied = true;
+    setTimeout(() => {
+      this.isCopied = false;
+    }, 3000);
+  }
 }

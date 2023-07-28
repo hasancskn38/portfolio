@@ -1,15 +1,11 @@
 /* Reset some default styling */
-body{
+body {
   margin: 0;
   padding: 0;
 }
 
-.padding-right-0 {
-  padding-right: 0;
-}
-
 .cursor {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 nav {
@@ -22,72 +18,293 @@ nav {
   transition: all 225ms ease-in-out;
   position: fixed;
   background-color: #f8f8ee;
+  z-index: 2;
 }
+
+.nav-responsive {
+  flex-direction: column;
+  position: fixed;
+  justify-content: center;
+  align-items: center;
+  top: 80px;
+  left: 0;
+  bottom: 0;
+  width: 100vw;
+  padding: 0;
+  margin: 0;
+  background-color: #f8f8ee;
+  z-index: 5;
+}
+
+.nav-bottom {
+  clip-path: polygon(0% 0%, 100% 35%, 100% 100%, 0% 100%);
+  background-color: #000;
+  height: 20%;
+  display: flex;
+  justify-content: space-between;
+  padding: 64px;
+  align-items: flex-end;
+  position: absolute;
+  bottom: 0;
+  width: calc(100vw - 128px);
+  animation: slideFromBottom 500ms ease-in-out;
+
+
+  .nav-bottom-left {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    height: 35%;
+    justify-content: center;
+
+    .copy-email {
+      display: flex;
+      align-items: start;
+      flex-direction: column;
+
+      .email-container {
+        display: flex;
+        align-items: center;
+
+        img {
+          padding-left: 30px;
+        }
+      }
+
+      .copied-container {
+        display: flex;
+        align-items: flex-start;
+
+        p {
+          margin: 0;
+        }
+      }
+
+      img {
+        width: 30px;
+
+        &:hover ~ .email {
+          background-color: #00BC8F !important;
+        }
+      }
+    }
+  }
+
+  .nav-bottom-right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 35%;
+    img {
+      transition: all 225ms ease-in-out;
+      width: 40px;
+      padding-left: 30px;
+  
+      &:hover {
+        transform: translateY(-20px);
+      }
+    }
+  }
+}
+
+h2 {
+  display: inline-block;
+  transition: 225ms ease-in-out;
+  color: #f8f8ee;
+  font-size: 56px;
+  font-weight: 900;
+  margin: 0;
+
+  &:hover {
+    color: #00BC8F;
+  }
+}
+
+p {
+  color: #f8f8ee;
+}
+
 
 .logo {
-  font-size: 24px;
+  font-size: 26px;
+  font-weight: 800;
   margin: 0;
-  color: #333;
+  color: #000;
 }
 
-ul {
-  list-style: none;
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-100%);
+    /* Start off-screen to the left */
+  }
+
+  100% {
+    transform: translateX(0);
+    /* Slide in to the page */
+  }
+}
+
+@keyframes slideFromBottom {
+
+  0% {
+    transform: translateY(100%);
+    /* Start off-screen to the left */
+  }
+
+  100% {
+    transform: translateY(0);
+    /* Slide in to the page */
+  }
+}
+
+.ul-container {
   display: flex;
-  transition: transform 225ms ease;
-}
+  justify-content: center;
+  align-items: center;
+  animation: slideInFromLeft 500ms ease-in-out;
 
-li {
-  font-size: 20px;
-  padding: 24px;
+  ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  li {
+    font-size: 80px;
+    font-weight: 700;
+    padding: 45px;
+    position: relative;
+    text-align: center;
+    width: 480px;
+    display: inline-block;
+
+    &::before {
+      content: "";
+      position: absolute;
+      border-left: 4px solid black;
+      border-bottom: 4px solid black;
+      width: 30px;
+      height: 40px;
+      left: 5%;
+      /* Adjust this value as needed to position the ::before element on hover */
+      top: 70%;
+      /* Set a fixed vertical position for ::before element, here it's centered */
+      transform: translateY(-50%);
+      /* Center ::before element vertically */
+      transition: none;
+      z-index: -1;
+    }
+
+    &:hover::before {
+      content: "";
+      transition: all 225ms ease-in;
+      position: absolute;
+      border-bottom: 4px solid #00BC8F;
+      border-left: 0;
+      width: 240px;
+      height: 40px;
+      left: 50%;
+      /* Adjust this value as needed to position the ::before element on hover */
+      top: 70%;
+      /* Set a fixed vertical position for ::before element on hover, here it's centered */
+      transform: translateY(-50%);
+      /* Center ::before element vertically on hover */
+      z-index: -1;
+    }
+
+    &:active::before {
+      content: "";
+      position: absolute;
+      border: 4px solid black;
+      width: 480px;
+      height: 100px;
+      left: 5%;
+      transform: translateY(-78%);
+      transition: none;
+      z-index: -1;
+    }
+  }
 }
 
 /* Style for the hamburger menu icon */
 .hamburger-menu {
-  display: none;
+  display: block;
   /* Hide by default on larger screens */
   cursor: pointer;
-  height: 30px;
-  width: 30px;
+  height: 40px;
+  width: 40px;
 }
 
 .bar {
   display: block;
-  width: 25px;
-  height: 3px;
+  width: 30px;
+  height: 4px;
   background-color: #333;
-  margin: 5px 0;
+  margin: 7.5px 0;
 }
 
-/* Media query for smaller screens (e.g., mobile devices) */
-@media screen and (max-width: 768px) {
-  .hamburger-menu {
-    display: block;
-    /* Show the hamburger icon on smaller screens */
+/* Show the menu items when the hamburger icon is clicked */
+ul.show {
+  display: flex;
+  padding: 0;
+}
+
+
+@media(max-width:768px) {
+
+  .nav-responsive {
+
+    .ul-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      animation: slideInFromLeft 500ms ease-in-out;
+    
+      ul {
+        list-style: none;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+      }
+    
+      li {
+        font-size: 50px;
+    
+        &::before {
+          left:22%;
+        }
+    
+        &:hover::before {
+          left: 50%;
+          width: 135px;
+        }
+    
+        &:active::before {
+          width: 300px;
+          height: 100px;
+          left: 22%;
+          transform: translateY(-78%);
+        }
+      }
+
   }
 
-  ul {
-    display: none;
-    /* Hide the menu items by default on smaller screens */
-    flex-direction: column;
-    position: fixed;
-    justify-content: center;
-    align-items: center;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    padding: 10px;
-    background-color: #f8f8ee;
-    z-index: 1;
-  }
+  .nav-bottom {
 
-  li {
-    font-size: 36px;
-    padding: 20px;
-  }
+    clip-path: polygon(-50% 0%, 100% 45%, 100% 101%, 0% 100%);
+  
 
-  /* Show the menu items when the hamburger icon is clicked */
-  ul.show {
-    display: flex;
+    // .nav-bottom-left {
+
+    // }
+
+    h2 {
+      font-size: 36px;
+    }
+
+  }
   }
 }

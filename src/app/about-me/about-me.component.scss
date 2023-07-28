@@ -62,7 +62,7 @@ button {
 h2 {
     font-size: 84px;
     transition: all 225ms ease-in-out;
-
+    display: inline-block;
     &:hover {
     cursor: default;
     color: #00BC8F;
