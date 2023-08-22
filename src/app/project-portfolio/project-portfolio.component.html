@@ -1,0 +1,26 @@
+<div id="portfolio" class="project-list">
+    <div class="project-item" (mouseenter)="showDescription(0)"
+    (mouseleave)="hideDescription(0)">
+      <div class="image-container">
+        <div class="number-container-small-screen">03/04</div>
+        <img src="./assets/images/join.png">
+        <img class="arrow-down" src="./assets/images/project-arrow.svg" alt="">
+        <!-- <img class="arrow-down" src="./assets/images/arrow-down.png" alt=""> -->
+      </div>
+      <div class="description-container" [ngClass]="{'show': isDescriptionVisible(0)}">
+        <div class="number-container">03/04</div>
+        <h3>Portfolio</h3>
+        <p class="languages">Angular | SCSS | Typescript</p>
+        <p>My personal portfolio website</p>
+        <div class="button-container">
+          <button class="cursor" (click)="navigateTo('https://www.google.de')">
+            <a target="_blank">Live</a>
+          </button>
+          <button (click)="navigateTo('https://www.google.de')">
+            <a href="" target="_blank">Github</a>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  

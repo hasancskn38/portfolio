@@ -1,15 +1,23 @@
-<main>
-    <header>
-        <h1 class="header-top">Frontend</h1>
-        <h1>Developer</h1>
-    </header>
-    <div class="sub-heading">
-        <hr>
-        <p>Hasan Coskun</p>
+<main id="main">
+    <div class="header-container">
+        <header>
+            <div class="main-heading-container animate-on-load">
+                <h1 class="header-top">Frontend</h1>
+                <h1>Developer</h1>
+            </div>
+            <div class="sub-heading">
+                <hr>
+                <p>Hasan Coskun</p>
+            </div>
+        </header>
     </div>
-    <div class="header-bottom">
+    <div class="header-bottom animate-on-load" #aboutmeLeft [@divState]="state">
         <p>hasan.coskun38@outlook.de</p>
-        <p>Scroll<br>Down</p>
+        <div class="scroll-down-container cursor" [@divState2]="state">
+            <a (click)="scrollTo('about')">
+                <img src="./assets/images/arrow-down.png" alt="">
+                <p>Scroll<br>Down</p>
+            </a>
+        </div>
     </div>
-    <img src="./assets/images/arrow-down.png" alt="">
 </main>

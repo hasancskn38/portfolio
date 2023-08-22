@@ -36,6 +36,7 @@
 .project-item {
   display: flex;
   align-items: center;
+  flex-direction: row-reverse;
   width: 100vw;
   max-width: 1280px;
   padding-bottom: 100px;
@@ -59,13 +60,13 @@
     align-items: center;
     height: 75px;
     width: 75px;
-    right: -15px;
+    left: -15px;
     top: 122px;
     position: absolute;
     z-index: 2;
     opacity: 0;
     transition: all 225ms ease-in-out;
-    transform: rotate(90deg);
+    transform: rotate(180deg);
   }
 }
 
@@ -93,8 +94,8 @@ img {
   opacity: 1;
   border: 3px solid black;
   top: 25px;
-  left: 25px;
-  right: -25px;
+  left: -25px;
+  right: 25px;
   bottom: -25px;
 }
 
@@ -110,9 +111,9 @@ img {
 .project-item:hover .arrow-down {
   opacity: 1;
   position: absolute;
-  right: -62px;
+  left: -62px;
   top: 170px;
-  transform: rotate(0);
+  transform: rotate(260deg);
 }
 
   .description-container {
@@ -121,19 +122,19 @@ img {
     position: relative;
     z-index: -10;
     top: 0;
-    left: -550px;
+    right: -550px;
     opacity: 0;
-    transition: left 225ms ease 225ms, opacity 225ms ease;
+    transition: right 225ms ease 225ms, opacity 225ms ease;
 
     &.show {
-      left: 0;
+      right: 0;
       opacity: 1;
     }
   }
 
   .number-container {
     display: flex;
-    justify-content: end;
+    justify-content: start;
     font-weight: 700;
     font-size: 48px;
     padding-bottom: 50px;
@@ -216,6 +217,7 @@ h3 {
   .project-item {
     display: flex;
     flex-direction: column;
+    max-width: 100%; /* Add max-width property */
     margin: 0 auto; /* Center the .project-list horizontally */
   }
 
@@ -226,7 +228,6 @@ h3 {
     transition: none !important;
     opacity: 1 !important;
     z-index: 1 !important;
-    width: 100%;
 
     .number-container {
       display: none;
@@ -249,6 +250,7 @@ h3 {
 
       img {
         width: 100%;
+        /* You can adjust the height proportionally if needed */
         height: auto;
       }
     }

@@ -1,5 +1,5 @@
 import { Component, HostListener } from '@angular/core';
-import { trigger, state, style, animate, transition } from '@angular/animations';
+import { ScrollService } from '../scroll.service';
 import { ClipboardService } from 'ngx-clipboard';
 
 @Component({
@@ -12,11 +12,12 @@ import { ClipboardService } from 'ngx-clipboard';
 })
 export class NavbarComponent {
 
-  constructor(private clipboardService: ClipboardService) { }
+  constructor(private clipboardService: ClipboardService, private scrollService: ScrollService) { }
 
   isMenuOpen: boolean = false;
   isNavBottomVisible: boolean = false;
   isCopied:boolean = false;
+
 
   toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;
@@ -39,4 +40,9 @@ export class NavbarComponent {
       this.isCopied = false;
     }, 3000);
   }
+
+  scrollTo(sectionId: string): void {
+    this.scrollService.scrollTo(sectionId);
+  }
+
 }

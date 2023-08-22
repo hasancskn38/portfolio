@@ -216,6 +216,7 @@ h3 {
   .project-item {
     display: flex;
     flex-direction: column;
+    max-width: 100%; /* Add max-width property */
     margin: 0 auto; /* Center the .project-list horizontally */
   }
 
@@ -226,7 +227,6 @@ h3 {
     transition: none !important;
     opacity: 1 !important;
     z-index: 1 !important;
-    width: 100%;
 
     .number-container {
       display: none;
@@ -249,6 +249,7 @@ h3 {
 
       img {
         width: 100%;
+        /* You can adjust the height proportionally if needed */
         height: auto;
       }
     }

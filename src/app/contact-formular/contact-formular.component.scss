@@ -2,8 +2,15 @@
   cursor: pointer;
 }
 
+.error-message {
+  color: red;
+  font-size: 18px;
+  padding-top: 15px;
+  display:inline-block;
+}
+
 footer {
-    clip-path: polygon(0% 0%, 100% 12%, 100% 100%, 0% 100%);
+    clip-path: polygon(0% 0%, 100% 10%, 100% 100%, 0% 100%);
     background-color: #000;
     width: calc(100vw - 128px);
     padding: 0 64px;
@@ -34,6 +41,7 @@ footer {
   
     .new-project-subheading {
       font-size: 24px;
+      padding: 0 0 50px 0;
       color: #f8f8ee;
       text-align: center;
     }
@@ -42,24 +50,26 @@ footer {
   .form-container {
     display: flex;
     justify-content: center;
-
+    align-items: center;
+    max-width: 1280px;
+    width: 100%;
+    margin: 0 auto;
   }
   
   form {
     display: flex;
     justify-content: center;
-    align-items: center;
+    // align-items: center;
     flex-direction: column;
     gap: 40px;
   
     div {
-      width: calc(100vw - 128px);
-  
       input,
       textarea {
         transition: all 225ms ease-in-out;
         cursor: pointer;
-        width: 100%;
+        width: 80vw;
+        max-width: 1280px;
         box-sizing: border-box;
         background-color: #000;
         border: none;
@@ -101,6 +111,9 @@ footer {
       margin: 64px;
       transition: all 225ms ease-in-out;
       font-weight: 400;
+      &:hover {
+        width: 250px;
+      }
     }
   }
 
@@ -125,4 +138,40 @@ footer {
     background-repeat: no-repeat;
     background-position: top 20px right 20px;
     background-size: 40px 40px;
+  }
+
+  .arrow-container {
+    display: flex;
+    justify-content: flex-end; /* Use 'flex-end' instead of 'right' to align the image to the right */
+    filter: invert(100%);
+  }
+  
+  .arrow-wrapper {
+    transform: rotate(180deg); /* Apply rotation to the wrapper */
+  }
+  
+  .arrow-up {
+    animation: arrowAnimation 2s infinite;
+    width: 70px;
+  }
+  
+  @keyframes arrowAnimation {
+    0%, 100% {
+      transform: translateY(-20px);
+    }
+    50% {
+      transform: translateY(20px);
+    }
+  }
+
+  @media(max-width:720px) {
+    footer {
+      clip-path: polygon(0% 0%, 100% 8%, 100% 100%, 0% 100%);
+    }
+  }
+
+  @media(max-width:560px) {
+    footer {
+      clip-path: polygon(0% 0%, 100% 6%, 100% 100%, 0% 100%);
+    }
   }

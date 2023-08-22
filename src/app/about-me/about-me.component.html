@@ -1,19 +1,29 @@
-<div class="aboutme">
-    <h2>About me</h2>
-    <div class="aboutme-container">
-        <div class="aboutme-left">
-            <p>I'm a passionate junior front-end developer from Cologne, Germany.
-               With a strong love for web development, I aim to create beautiful, user-friendly
-               websites by writing clean and efficient code in HTML, CSS, and JavaScript. 
-               My continuous learning journey keeps me up-to-date with the latest trends in 
-               front-end development, and I enjoy taking on new challenges to expand my skills.
-            </p>
-               <button class="cursor">Let's talk</button>
-        </div>
-    
-        <div class="aboutme-right">
-            <div class="placeholder">Placeholder for Image</div>
-            <!-- <img src="./assets/images/arrow-down.png" alt=""> -->
-        </div>
+<div id="about" class="aboutme" [@divState]="state">
+  <h2>About me</h2>
+  <div class="aboutme-container">
+
+    <div class="aboutme-left" #aboutmeLeft>
+      <p>
+        Hello, I'm Hasan Coskun, a creative junior Front-End Developer from Cologne, Germany. Skilled in crafting intuitive user experiences and bringing designs to life.
+        <br>
+        <br>
+        Moving on from my role as a chemical plant operator, I've always been captivated by the software driving our processes. This intrigue led me to experiment with building small apps in my free time. Now, as a Junior Front-End Developer, I'm excited to combine my industrial background with coding expertise to craft meaningful and user-centered digital journeys.
+        <br>
+        <br>
+        If you're seeking an enthusiastic Junior Front-End Developer eager to contribute to dynamic projects, let's connect! Whether it's a project idea, collaboration, or a web development chat, feel free to reach out. Let's collaborate on something extraordinary!
+      </p>
+      <div class="button-container">
+        <button class="cursor"><a href="#contact-formular">Let's talk</a></button>
+      </div>
+    </div>
+
+    <div class="aboutme-right">
+      <div class="placeholder">Placeholder for Image</div>
+    </div>
+  </div>
+  
+    <div class="arrow-container">
+    <img class="arrow-left" src="./assets/images/arrow-left.png" alt="">
     </div>
 </div>
+

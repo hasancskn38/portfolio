@@ -1,81 +1,84 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, Renderer2, ViewChild } from '@angular/core';
+import { trigger, state, style, animate, transition } from '@angular/animations';
+
 
 @Component({
   selector: 'app-portfolio',
   templateUrl: './portfolio.component.html',
-  styleUrls: ['./portfolio.component.scss']
-})
-export class PortfolioComponent {
-
-  projectCollection =[
-    {
-      "number": 1,
-      "image": "./assets/images/join.png",
-      "name": "JOIN",
-      "languages": "HTML | CSS | Javascript",
-      "description": "Task Manager inspired by the Kanban System. Create and organize tasks using drag and drop functions, assign users and categories",
-      "buttons": [
-        {
-          "text": "Live",
-          "url": "https://hasan-coskun.developerakademie.net/join/html/index.html"
-        },
-        {
-          "text": "GitHub",
-          "url": "https://github.com/yourusername/repository1"
-        }
-      ]
-    },
-    {
-      "number": 2,
-      "image": "./assets/images/sharkie.png",
-      "name": "Sharky",
-      "languages": "HTML | CSS | Javascript",
-      "description": "A single Jump-and-Run game based on an object-oriented approach. Help Sharky to defeat his biggest fear - Orcazar",
-      "buttons": [
-        {
-          "text": "Live",
-          "url": "https://hasan-coskun.developerakademie.net/sharky/"
-        },
-        {
-          "text": "GitHub",
-          "url": "https://github.com/yourusername/repository2"
-        }
-      ]
-    },
-    {
-      "number": 3,
-      "image": "./assets/images/crm.png",
-      "name": "Coming soon",
-      "languages": "Angular | Firebase | Material Design | Typescript",
-      "description": "Coming soon",
-      "buttons": [
-        {
-          "text": "Live",
-          "url": "https://www.example.com"
-        },
-        {
-          "text": "GitHub",
-          "url": "https://github.com/yourusername/repository3"
-        }
-      ]
-    },
-    {
-      "number": 4,
-      "image": "./assets/images/crm.png",
-      "name": "Portfolio",
-      "languages": "Angular | SCSS | Typescript",
-      "description": "My personal Portfolio Website",
-      "buttons": [
-        {
-          "text": "Live",
-          "url": "https://www.example.com"
-        },
-        {
-          "text": "GitHub",
-          "url": "https://github.com/yourusername/repository3"
-        }
-      ]
-    }
+  styleUrls: ['./portfolio.component.scss'],
+  animations: [
+    trigger('divState', [
+      state('normal', style({
+        transform:'translateY(-50px)',
+        opacity: '0'
+      })),
+      state('unnormal', style({
+        transform:'translateY(0)',
+        opacity: '1'
+      })),
+      transition('normal <=> unnormal', animate(700)),
+    ])
   ]
+})
+export class PortfolioComponent implements AfterViewInit {
+  state = 'normal';
+  isVisible = false;
+
+  @ViewChild('aboutmeLeft', { static: true }) aboutmeLeft: ElementRef | undefined;
+
+  constructor(private renderer: Renderer2) {}
+
   
+  // An array to keep track of the hovered state for each project
+  hoveredStates: boolean[] = [];
+
+  showDescription(index: number) {
+    // Set the hovered state for the project at the given index to true
+    this.hoveredStates[index] = true;
+  }
+
+  hideDescription(index: number) {
+    // Set the hovered state for the project at the given index to false
+    this.hoveredStates[index] = false;
+  }
+
+  isDescriptionVisible(index: number): boolean {
+    // Check if the description should be visible for the project at the given index
+    return this.hoveredStates[index] || false;
+  }
+
+  navigateTo(url: string): void {
+    window.open(url, '_blank');
+  }
+
+  ngAfterViewInit() {
+    this.observeVisibility();
+  }
+
+  observeVisibility() {
+    const options = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.5,
+    };
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          this.isVisible = true; // Set the flag to true
+          if (this.state !== 'unnormal') {
+            this.state = 'unnormal'; // Change the state to 'unnormal' only if it's not already set
+          }
+        } else {
+          if (!this.isVisible) {
+            this.state = 'normal'; // If not visible, reset the state only if the flag is false
+          }
+        }
+      });
+    }, options);
+
+    if (this.aboutmeLeft) {
+      observer.observe(this.aboutmeLeft.nativeElement);
+    }
+  }
 }

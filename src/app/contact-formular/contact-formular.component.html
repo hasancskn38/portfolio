@@ -1,34 +1,45 @@
-<footer>
-    <div class="footer-header">
-        <h2>Say Hi!</h2>
-    </div>
-    <div class="heading-container">
-        <p class="new-project-heading">Want to discuss a new project?</p>
-        <p class="new-project-subheading">Feel free to reach out and share your ideas. Let's collaborate to bring them to life!</p>
-    </div>
+<footer id="contact-formular" #aboutmeLeft>
+  <div class="footer-header">
+    <h2>Say Hi!</h2>
+  </div>
+  <div class="heading-container">
+    <p class="new-project-heading">Want to discuss a new project?</p>
+    <p class="new-project-subheading">Feel free to reach out and share your ideas. Let's collaborate to bring them to
+      life!</p>
+  </div>
 
-    <div class="form-container">
-      <form (ngSubmit)="onSubmit(myForm)" #myForm="ngForm">
-        <div class="input-container">
-          <input placeholder="Your name" type="text" id="name" name="name" required [(ngModel)]="formData.name" #nameInput="ngModel"
-            [style.backgroundImage]="formData.name.length > 2 ? 'url(./assets/images/fullfilled.svg)' : 'none'">
-          <span *ngIf="formSubmitted && nameInput.invalid && nameInput.dirty" class="error-message">Please enter at least 2 characters.</span>
+  <div class="form-container">
+    <form action="https://hasan-coskun.developerakademie.net/portfolio/send_mail.zip" (ngSubmit)="onSubmit(myForm)"
+      #myForm="ngForm">
+      <div class="input-container">
+        <input placeholder="Your name" type="text" id="name" name="name" required [(ngModel)]="formData.name"
+          #nameInput="ngModel"
+          [style.backgroundImage]="formData.name.length > 2 ? 'url(./assets/images/fullfilled.svg)' : 'none'">
+        <span *ngIf="nameValid" class="error-message">Please enter at least 2 characters.</span>
+      </div>
+
+      <div class="input-container">
+        <input placeholder="Your email" type="email" id="email" name="email" required [(ngModel)]="formData.email"
+          #emailInput="ngModel" [class.invalid]="emailInput.invalid && emailInput.dirty"
+          [style.backgroundImage]="isEmailValid() ? 'url(./assets/images/fullfilled.svg)' : 'none'">
+        <span *ngIf="emailValid" class="error-message">Please enter a valid email address.</span>
+      </div>
+
+
+      <div>
+        <textarea placeholder="Your text" id="message" name="message" required [(ngModel)]="formData.message"
+          #messageInput="ngModel"
+          [style.backgroundImage]="formData.message.length > 10 ? 'url(./assets/images/fullfilled.svg)' : 'none'"></textarea>
+        <span *ngIf="textValid" class="error-message">Please enter at
+          least 10 characters.</span>
+      </div>
+      <button class="cursor" type="submit">Send message</button>
+      <div class="arrow-container">
+        <div class="arrow-wrapper">
+          <img class="arrow-up cursor" src="./assets/images/arrow-down.png" alt="">
         </div>
-        
-        <div class="input-container">
-          <input placeholder="Your email" type="email" id="email" name="email" required [(ngModel)]="formData.email"
-            #emailInput="ngModel" [class.invalid]="emailInput.invalid && emailInput.dirty"
-            [style.backgroundImage]="emailInput.valid && emailInput.dirty ? 'url(./assets/images/fullfilled.svg)' : 'none'">
-          <span *ngIf="formSubmitted && emailInput.invalid && emailInput.dirty" class="error-message">Please enter a valid email address.</span>
-        </div>
-        
-        <div>
-          <textarea placeholder="Your text" id="message" name="message" required [(ngModel)]="formData.message"
-            #messageInput="ngModel" [style.backgroundImage]="formData.message.length > 10 ? 'url(./assets/images/fullfilled.svg)' : 'none'"></textarea>
-          <span *ngIf="formSubmitted && messageInput.invalid && messageInput.dirty" class="error-message">Please enter at least 20 characters.</span>
-        </div>
-        <button class="cursor" type="submit">Send message</button>
-      </form>
-    </div>
-    
+      </div>
+    </form>
+  </div>
+
 </footer>

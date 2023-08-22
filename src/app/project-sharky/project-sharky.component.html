@@ -1,0 +1,28 @@
+
+<div id="portfolio" class="project-list">
+    <div class="project-item" (mouseenter)="showDescription(0)"
+    (mouseleave)="hideDescription(0)">
+      <div class="image-container">
+        <div class="number-container-small-screen">04/04</div>
+        <img src="./assets/images/sharkie.png">
+        <img class="arrow-down" src="./assets/images/project-arrow.svg" alt="">
+        
+        <!-- <img class="arrow-down" src="./assets/images/arrow-down.png" alt=""> -->
+      </div>
+      <div class="description-container" [ngClass]="{'show': isDescriptionVisible(0)}">
+        <div class="number-container">04/04</div>
+        <h3>Sharkie</h3>
+        <p class="languages">HTML, CSS, JS</p>
+        <p>A single Jump-and-Run game based on an object-oriented approach. Help Sharkie to defeat his biggest fear - Orcazar</p>
+        <div class="button-container">
+          <button class="cursor" (click)="navigateTo('https://hasan-coskun.developerakademie.net/sharky/')">
+            <a target="_blank">Live</a>
+          </button>
+          <button class="cursor" (click)="navigateTo('https://github.com/hasancskn38/sharkie')">
+            <a href="" target="_blank">Github</a>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  

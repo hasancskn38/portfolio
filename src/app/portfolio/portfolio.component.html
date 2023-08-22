@@ -1,22 +1,29 @@
-<div class="portfolio-container">
-    <div class="portfolio-header">
-      <h2>Portfolio</h2>
-      <p>This page is a sample of my work - please feel free to try them out.</p>
+<div id="portfolio" class="project-list">
+  <div class="portfolio-header">
+    <h2>Portfolio</h2>
+    <p>This page is a sample of my work - please feel free to try them out.</p>
+  </div>
+  <div class="project-item" [@divState]="state" #aboutmeLeft (mouseenter)="showDescription(0)"
+  (mouseleave)="hideDescription(0)">
+    <div class="image-container">
+      <div class="number-container-small-screen">01/04</div>
+      <img src="./assets/images/join.png">
+      <img class="arrow-down" src="./assets/images/project-arrow.svg" alt="">
+      <!-- <img class="arrow-down" src="./assets/images/arrow-down.png" alt=""> -->
     </div>
-    <div class="portfolio-wrapper">
-      <div *ngFor="let project of projectCollection; let i = index" class="project-item">
-        <div [ngClass]="{ 'image-container-left': i % 2 === 0, 'image-container-right': i % 2 !== 0 }">
-          <img [src]="project.image" alt="{{ project.name }} Image">
-        </div>
-        <div class="description-container">
-          <h3>{{ project.name }}</h3>
-          <p class="languages">{{ project.languages }}</p>
-          <p>{{ project.description }}</p>
-          <button class="cursor" *ngFor="let button of project.buttons">
-            <a [href]="button.url" target="_blank">{{ button.text }}</a>
-          </button>
-        </div>
+    <div [ngClass]="{'show': isDescriptionVisible(0)}" class="description-container" >
+      <div class="number-container">01/04</div>
+      <h3>Join</h3>
+      <p class="languages">HTML | CSS | JS</p>
+      <p>Task Manager inspired by the Kanban System. Create and organize tasks using drag and drop functions, assign users and categories,</p>
+      <div class="button-container">
+        <button class="cursor" (click)="navigateTo('https://hasan-coskun.developerakademie.net/join/html/index.html')">
+          Live
+        </button>
+        <button class="cursor" (click)="navigateTo('https://github.com/hasancskn38/join-mch')">
+          Github
+        </button>
       </div>
     </div>
   </div>
-  
+</div>
