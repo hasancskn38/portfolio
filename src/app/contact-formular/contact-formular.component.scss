@@ -6,7 +6,8 @@
   color: red;
   font-size: 18px;
   padding-top: 15px;
-  display:inline-block;
+  display:flex;
+  justify-content: start;
 }
 
 footer {
@@ -99,20 +100,25 @@ footer {
       }
     }
   
-    button {
-      /* Your existing button styles */
-      font-size: 24px;
-      padding: 16px;
-      box-shadow: 0 0 0 4px #f8f8ee;
-      background-color: #000;
-      color: #f8f8ee;
-      width: 200px;
-      padding: 16px;
-      margin: 64px;
-      transition: all 225ms ease-in-out;
-      font-weight: 400;
-      &:hover {
-        width: 250px;
+    .button-container {
+      display:flex;
+      justify-content: center;
+
+      button {
+        /* Your existing button styles */
+        font-size: 24px;
+        padding: 16px;
+        box-shadow: 0 0 0 4px #f8f8ee;
+        background-color: #000;
+        color: #f8f8ee;
+        width: 200px;
+        padding: 16px;
+        margin: 64px;
+        transition: all 225ms ease-in-out;
+        font-weight: 400;
+        &:hover {
+          width: 250px;
+        }
       }
     }
   }

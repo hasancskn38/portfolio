@@ -9,7 +9,7 @@
   </div>
 
   <div class="form-container">
-    <form method="post" action="https://hasan-coskun.developerakademie.net/portfolio/send_mail/send_mail.php" (ngSubmit)="onSubmit(myForm)"
+    <form method="post" action="https://hasan-coskun.developerakademie.net/send_mail/send_mail.php" (ngSubmit)="onSubmit(myForm)"
       #myForm="ngForm">
       <div class="input-container">
         <input [@divState]="state" #nameField #aboutmeLeft placeholder="Your name" type="text" id="name" name="name" required [(ngModel)]="formData.name"
@@ -33,10 +33,12 @@
         <span *ngIf="textValid" class="error-message">Please enter at
           least 10 characters.</span>
       </div>
+      <div class="button-container">
       <button #sendButton class="cursor" type="submit">Send message</button>
+      </div>
       <div class="arrow-container">
         <div class="arrow-wrapper">
-          <img class="arrow-up cursor" src="./assets/images/arrow-down.png" alt="">
+          <a href="#main"><img class="arrow-up cursor" src="./assets/images/arrow-down.png" alt=""></a>
         </div>
       </div>
     </form>

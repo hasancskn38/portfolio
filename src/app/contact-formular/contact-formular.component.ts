@@ -51,40 +51,67 @@ export class ContactFormularComponent implements AfterViewInit {
   }
 
   async onSubmit(form: NgForm) {
-  this.formSubmitted = true; // Set the formSubmitted flag to true when the form is submitted
-    // this.nameValid = true
-    // this.emailValid = true;
-    // this.textValid = true;
-    // if(this.formData.name.length < 3) {
-    //   this.nameValid = true;
-    // }
-    // if(this.formData.message.length < 10) {
-    //   this.textValid = true;
-    // }
-    // if(!this.isEmailValid()) {
-    //   this.emailValid = true;
-    // }
+    this.formSubmitted = true;
+    this.resetValidationFlags();
+    
+    if (this.isNameInvalid()) {
+      this.nameValid = true;
+    }
+  
+    if (this.isMessageInvalid()) {
+      this.textValid = true;
+    }
+  
+    if (!this.isEmailValid()) {
+      this.emailValid = true;
+    }
+  
+    this.clearFormData();
+  
+    await this.sendFormData();
+  }
+  
+  resetValidationFlags() {
+    this.nameValid = false;
+    this.emailValid = false;
+    this.textValid = false;
+  }
+  
+  isNameInvalid() {
+    return this.formData.name.length < 3;
+  }
+  
+  isMessageInvalid() {
+    return this.formData.message.length < 10;
+  }
+  
+  clearFormData() {
     this.formData.message = '';
     this.formData.email = '';
     this.formData.name = '';
+  }
+  
+  async sendFormData() {
     let nameField = this.nameField.nativeElement;
     let messageField = this.messageField.nativeElement;
-    messageField.disbaled = true;
-    nameField.disbaled = true;
+  
+    messageField.disabled = true;
+    nameField.disabled = true;
+  
     // Animation that the user sees that something is happening
-    messageField.disbaled = false;
-    nameField.disbaled = false;
+    messageField.disabled = false;
+    nameField.disabled = false;
+  
     let fd = new FormData();
     fd.append('name', nameField.value);
     fd.append('message', messageField.value);
-    await fetch('https://hasan-coskun.developerakademie.net/portfolio/send_mail/send_mail.php',
-      {
-        method: 'POST',
-        body: fd
-      }
-  )
+  
+    await fetch('https://hasan-coskun.developerakademie.net/send_mail/send_mail.php', {
+      method: 'POST',
+      body: fd
+    });
   }
-
+  
   
 
   ngAfterViewInit() {
