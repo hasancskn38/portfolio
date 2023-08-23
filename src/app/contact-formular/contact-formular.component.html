@@ -9,31 +9,31 @@
   </div>
 
   <div class="form-container">
-    <form action="https://hasan-coskun.developerakademie.net/portfolio/send_mail.zip" (ngSubmit)="onSubmit(myForm)"
+    <form method="post" action="https://hasan-coskun.developerakademie.net/portfolio/send_mail/send_mail.php" (ngSubmit)="onSubmit(myForm)"
       #myForm="ngForm">
       <div class="input-container">
-        <input placeholder="Your name" type="text" id="name" name="name" required [(ngModel)]="formData.name"
+        <input [@divState]="state" #nameField #aboutmeLeft placeholder="Your name" type="text" id="name" name="name" required [(ngModel)]="formData.name"
           #nameInput="ngModel"
           [style.backgroundImage]="formData.name.length > 2 ? 'url(./assets/images/fullfilled.svg)' : 'none'">
         <span *ngIf="nameValid" class="error-message">Please enter at least 2 characters.</span>
       </div>
 
-      <div class="input-container">
-        <input placeholder="Your email" type="email" id="email" name="email" required [(ngModel)]="formData.email"
+      <!-- <div class="input-container">
+        <input [@divState]="state" #aboutmeLeft placeholder="Your email" type="email" id="email" name="email" required [(ngModel)]="formData.email"
           #emailInput="ngModel" [class.invalid]="emailInput.invalid && emailInput.dirty"
           [style.backgroundImage]="isEmailValid() ? 'url(./assets/images/fullfilled.svg)' : 'none'">
         <span *ngIf="emailValid" class="error-message">Please enter a valid email address.</span>
-      </div>
+      </div> -->
 
 
       <div>
-        <textarea placeholder="Your text" id="message" name="message" required [(ngModel)]="formData.message"
+        <textarea [@divState]="state" #messageField #aboutmeLeft placeholder="Your text" id="message" name="message" required [(ngModel)]="formData.message"
           #messageInput="ngModel"
           [style.backgroundImage]="formData.message.length > 10 ? 'url(./assets/images/fullfilled.svg)' : 'none'"></textarea>
         <span *ngIf="textValid" class="error-message">Please enter at
           least 10 characters.</span>
       </div>
-      <button class="cursor" type="submit">Send message</button>
+      <button #sendButton class="cursor" type="submit">Send message</button>
       <div class="arrow-container">
         <div class="arrow-wrapper">
           <img class="arrow-up cursor" src="./assets/images/arrow-down.png" alt="">

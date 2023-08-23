@@ -9,17 +9,18 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
   animations: [
     trigger('divState', [
       state('normal', style({
-        transform:'translateY(-50px)',
+        transform:'translateX(-50px)',
         opacity: '0'
       })),
       state('unnormal', style({
-        transform:'translateY(0)',
+        transform:'translateX(0)',
         opacity: '1'
       })),
       transition('normal <=> unnormal', animate(700)),
     ])
   ]
 })
+
 export class PortfolioComponent implements AfterViewInit {
   state = 'normal';
   isVisible = false;

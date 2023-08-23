@@ -1,11 +1,32 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, Renderer2, ViewChild } from '@angular/core';
+import { trigger, state, style, animate, transition } from '@angular/animations';
 
 @Component({
   selector: 'app-project-sharky',
   templateUrl: './project-sharky.component.html',
-  styleUrls: ['./project-sharky.component.scss']
+  styleUrls: ['./project-sharky.component.scss'],
+  animations: [
+    trigger('divState', [
+      state('normal', style({
+        transform:'translateX(50px)',
+        opacity: '0'
+      })),
+      state('unnormal', style({
+        transform:'translateX(0)',
+        opacity: '1'
+      })),
+      transition('normal <=> unnormal', animate(700)),
+    ])
+  ]
 })
-export class ProjectSharkyComponent {
+export class ProjectSharkyComponent implements AfterViewInit {
+  state = 'normal';
+  isVisible = false;
+
+  @ViewChild('aboutmeLeft', { static: true }) aboutmeLeft: ElementRef | undefined;
+
+  constructor(private renderer: Renderer2) {}
+  
   // An array to keep track of the hovered state for each project
   hoveredStates: boolean[] = [];
 
@@ -26,5 +47,36 @@ export class ProjectSharkyComponent {
 
   navigateTo(url: string): void {
     window.open(url, '_blank');
+  }
+
+  ngAfterViewInit() {
+    this.observeVisibility();
+  }
+
+  observeVisibility() {
+    const options = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.5,
+    };
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          this.isVisible = true; // Set the flag to true
+          if (this.state !== 'unnormal') {
+            this.state = 'unnormal'; // Change the state to 'unnormal' only if it's not already set
+          }
+        } else {
+          if (!this.isVisible) {
+            this.state = 'normal'; // If not visible, reset the state only if the flag is false
+          }
+        }
+      });
+    }, options);
+
+    if (this.aboutmeLeft) {
+      observer.observe(this.aboutmeLeft.nativeElement);
+    }
   }
 }

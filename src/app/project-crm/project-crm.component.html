@@ -3,7 +3,7 @@
     <div class="project-item" (mouseenter)="showDescription(0)"
     (mouseleave)="hideDescription(0)">
 
-      <div class="image-container">
+      <div class="image-container" class="image-container" [@divState]="state" #aboutmeLeft>
         <div class="number-container-small-screen">02/04</div>
         <img src="./assets/images/crm.png">
         <img class="arrow-down" src="./assets/images/project-arrow.svg" alt="">

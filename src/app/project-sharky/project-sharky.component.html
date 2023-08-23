@@ -2,7 +2,7 @@
 <div id="portfolio" class="project-list">
     <div class="project-item" (mouseenter)="showDescription(0)"
     (mouseleave)="hideDescription(0)">
-      <div class="image-container">
+      <div class="image-container" [@divState]="state" #aboutmeLeft>
         <div class="number-container-small-screen">04/04</div>
         <img src="./assets/images/sharkie.png">
         <img class="arrow-down" src="./assets/images/project-arrow.svg" alt="">
