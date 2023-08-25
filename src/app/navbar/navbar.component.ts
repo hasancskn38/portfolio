@@ -1,6 +1,6 @@
-import { Component, HostListener } from '@angular/core';
-import { ScrollService } from '../scroll.service';
+import { Component, Renderer2} from '@angular/core';
 import { ClipboardService } from 'ngx-clipboard';
+import { ScrollService } from '../scroll.service';
 
 @Component({
   selector: 'app-navbar',
@@ -12,7 +12,7 @@ import { ClipboardService } from 'ngx-clipboard';
 })
 export class NavbarComponent {
 
-  constructor(private clipboardService: ClipboardService, private scrollService: ScrollService) { }
+  constructor(private clipboardService: ClipboardService, private renderer: Renderer2, private scrollService: ScrollService) { }
 
   isMenuOpen: boolean = false;
   isNavBottomVisible: boolean = false;
@@ -24,6 +24,15 @@ export class NavbarComponent {
     this.isNavBottomVisible = this.isMenuOpen;
     // Toggle the body's overflow to prevent/enable scrolling
     document.body.style.overflow = this.isMenuOpen ? 'hidden' : 'auto';
+  }
+
+  closeMenuNavigation() {
+    setTimeout(() => {
+      this.isMenuOpen = !this.isMenuOpen;
+    this.isNavBottomVisible = this.isMenuOpen;
+    // Toggle the body's overflow to prevent/enable scrolling
+    document.body.style.overflow = this.isMenuOpen ? 'hidden' : 'auto';
+    }, 100);
   }
 
   closeMenu() {
@@ -41,8 +50,21 @@ export class NavbarComponent {
     }, 3000);
   }
 
-  scrollTo(sectionId: string): void {
-    this.scrollService.scrollTo(sectionId);
+  scrollToSection(sectionId: string): void {
+    this.closeMenuNavigation(); // Close the menu first
+    setTimeout(() => {
+      const section = this.renderer.selectRootElement(`#${sectionId}`);
+      if (section) {
+        section.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
   }
 
+  scrollToTop(): void {
+    const section = this.renderer.selectRootElement(`#main`);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+  
 }

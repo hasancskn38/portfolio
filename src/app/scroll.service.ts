@@ -5,6 +5,7 @@ import { ViewportScroller } from '@angular/common';
   providedIn: 'root'
 })
 export class ScrollService {
+  scrollToSection$: any;
 
   constructor(private viewportScroller: ViewportScroller) { }
 

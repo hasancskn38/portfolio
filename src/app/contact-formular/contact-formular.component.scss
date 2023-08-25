@@ -148,12 +148,12 @@ footer {
 
   .arrow-container {
     display: flex;
-    justify-content: flex-end; /* Use 'flex-end' instead of 'right' to align the image to the right */
+    justify-content: flex-end;
     filter: invert(100%);
   }
   
   .arrow-wrapper {
-    transform: rotate(180deg); /* Apply rotation to the wrapper */
+    transform: rotate(180deg); 
   }
   
   .arrow-up {

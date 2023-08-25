@@ -22,16 +22,11 @@ nav {
 }
 
 .nav-responsive {
-  flex-direction: column;
   position: fixed;
-  justify-content: center;
-  align-items: center;
   top: 80px;
   left: 0;
   bottom: 0;
   width: 100vw;
-  padding: 0;
-  margin: 0;
   background-color: #f8f8ee;
   z-index: 5;
 }

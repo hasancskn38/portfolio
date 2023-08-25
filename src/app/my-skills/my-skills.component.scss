@@ -29,8 +29,6 @@
 }
 }
 
-
-
 .icon-container {
     display: flex;
     justify-content: center;
@@ -105,13 +103,13 @@
 @media (max-width:700px) {
 .myskills {
 
+    .icon-container {
+        gap: 75px;
+    }
+
     h2 {
         top: -30px;
         font-size: 46px;
-    }
-
-    img {
-        width: 80px;
     }
 }
 }
@@ -119,20 +117,20 @@
 @media (max-width:550px) {
     .myskills {
 
+        .icon-container {
+            gap: 30px;
+        }
+
         h2 {
             top: -22px;
             font-size: 30px;
         }
-    
-        img {
-            width: 80px;
-        }
     }
 }
 
-@media (max-width:440px) {
-    
+@media (max-width:440px) {    
     .myskills {
+
 
         h2 {
             top: -14px;

@@ -12,6 +12,13 @@
   h2 {
     font-size: 56px;
     font-weight: 800;
+
+    transition: all 225ms ease-in-out;
+
+    &:hover {
+      cursor: default;
+      color: #00BC8F;
+    }
   }
 
   p {
@@ -30,7 +37,7 @@
   gap: 100px;
   padding: 0 128px;
   max-width: 1280px;
-  margin: 0 auto; 
+  margin: 0 auto;
 }
 
 .project-item {
@@ -77,9 +84,9 @@
   opacity: 0;
   z-index: 1;
   transition: all 225ms ease-in-out;
-  top:0;
+  top: 0;
   left: 0;
-  right:0;
+  right: 0;
   bottom: 0;
 }
 
@@ -115,39 +122,39 @@ img {
   transform: rotate(0);
 }
 
-  .description-container {
-    width: 570px;
-    flex-basis: 50%;
-    position: relative;
-    z-index: -10;
-    top: 0;
-    left: -550px;
-    opacity: 0;
-    transition: left 225ms ease 225ms, opacity 225ms ease;
+.description-container {
+  width: 570px;
+  flex-basis: 50%;
+  position: relative;
+  z-index: -10;
+  top: 0;
+  left: -550px;
+  opacity: 0;
+  transition: left 225ms ease 225ms, opacity 225ms ease;
 
-    &.show {
-      left: 0;
-      opacity: 1;
-    }
+  &.show {
+    left: 0;
+    opacity: 1;
   }
+}
 
-  .number-container {
+.number-container {
+  display: flex;
+  justify-content: end;
+  font-weight: 700;
+  font-size: 48px;
+  padding-bottom: 50px;
+}
+
+.number-container-small-screen {
+  display: none;
+  font-weight: 700;
+  font-size: 48px;
+  padding-bottom: 20px;
+
+  @media (max-width: 1300px) {
     display: flex;
-    justify-content: end;
-    font-weight: 700;
-    font-size: 48px;
-    padding-bottom: 50px;
   }
-
-  .number-container-small-screen {
-    display: none;
-    font-weight: 700;
-    font-size: 48px;
-    padding-bottom: 20px;
-
-    @media (max-width: 1300px) {
-      display: flex;
-    }
 }
 
 .description-container button {
@@ -191,8 +198,10 @@ h3 {
 
 @media (max-width:1280px) {
   .project-list {
-    max-width: 500px; /* Add max-width property */
-    margin: 0 auto; /* Center the .project-list horizontally */
+    max-width: 500px;
+    /* Add max-width property */
+    margin: 0 auto;
+    /* Center the .project-list horizontally */
 
     .arrow-down {
       display: none;
@@ -201,8 +210,8 @@ h3 {
     .project-item:hover .image-container::before {
       opacity: 1;
       border: 3px solid transparent;
-      top:0;
-      left:0;
+      top: 0;
+      left: 0;
       right: 0;
       bottom: 0;
     }
@@ -216,7 +225,8 @@ h3 {
   .project-item {
     display: flex;
     flex-direction: column;
-    margin: 0 auto; /* Center the .project-list horizontally */
+    margin: 0 auto;
+    /* Center the .project-list horizontally */
   }
 
 
@@ -246,6 +256,8 @@ h3 {
 
     .image-container {
       width: 100%;
+      filter: none;
+
 
       img {
         width: 100%;
@@ -259,6 +271,7 @@ h3 {
       h3 {
         font-size: 32px;
       }
+
       .languages {
         font-size: 20px;
       }

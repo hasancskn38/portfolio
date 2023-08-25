@@ -20,7 +20,11 @@ import { ProjectSharkyComponent } from './project-sharky/project-sharky.componen
 import { ProjectPortfolioComponent } from './project-portfolio/project-portfolio.component';
 
 const routes: Routes = [
-  {path: 'legal-notice', component:LegalNoticeComponent}
+  { path: 'main', component: MainComponent },
+  { path: 'about', component: AboutMeComponent },
+  { path: 'skills', component: MySkillsComponent },
+  { path: 'portfolio', component: PortfolioComponent },
+  { path: 'legal-notice', component: LegalNoticeComponent },
 ];
 
 @NgModule({

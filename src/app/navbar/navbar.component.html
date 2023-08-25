@@ -1,5 +1,5 @@
 <nav>
-  <div class="logo"><a class="cursor" (click)="scrollTo('main')">[HC]</a></div>
+  <div class="logo"><a class="cursor" (click)="scrollToTop()">[HC]</a></div>
   <div class="hamburger-menu cursor" (click)="toggleMenu()">
     <span class="bar"></span>
     <span class="bar"></span>
@@ -11,9 +11,15 @@
 
   <div class="ul-container">
     <ul [ngClass]="{'show': isMenuOpen}">
-      <li class="cursor" (click)="scrollTo('main-section')" (click)="toggleMenu()"><a href="#about-me">About me</a></li>
-      <li class="cursor" (click)="scrollTo('main-section')" (click)="toggleMenu()"><a href="#skills">My skills</a></li>
-      <li class="cursor" (click)="scrollTo('main-section')" (click)="toggleMenu()"><a href="#portfolio">Portfolio</a></li>
+      <li class="cursor" (click)="scrollToSection('about-section')">
+        <a>About Me</a>
+      </li>
+      <li class="cursor" (click)="scrollToSection('skills-section')">
+        <a>My Skills</a>
+      </li>
+      <li class="cursor"(click)="scrollToSection('portfolio-section')">
+        <a>Portfolio</a>
+      </li>
     </ul>
   </div>
 
