@@ -11,12 +11,6 @@
   <div class="form-container">
     <form (ngSubmit)="onSubmit(myForm)"
       #myForm="ngForm">
-      <div class="input-container">
-        <input [@divState]="state" #nameField #aboutmeLeft placeholder="Your name" type="text" id="name" name="name" required [(ngModel)]="formData.name"
-          #nameInput="ngModel"
-          [style.backgroundImage]="formData.name.length > 2 ? 'url(./assets/images/fullfilled.svg)' : 'none'">
-        <span *ngIf="nameValid" class="error-message">Please enter at least 2 characters.</span>
-      </div>
 
       <div class="input-container">
         <input [@divState]="state" #emailField #aboutmeLeft placeholder="Your email" type="email" id="email" name="email" required [(ngModel)]="formData.email"
@@ -24,6 +18,15 @@
           [style.backgroundImage]="isEmailValid() ? 'url(./assets/images/fullfilled.svg)' : 'none'">
         <span *ngIf="emailValid" class="error-message">Please enter a valid email address.</span>
       </div>
+      
+      <div class="input-container">
+        <input [@divState]="state" #nameField #aboutmeLeft placeholder="Your name" type="text" id="name" name="name" required [(ngModel)]="formData.name"
+          #nameInput="ngModel"
+          [style.backgroundImage]="formData.name.length > 2 ? 'url(./assets/images/fullfilled.svg)' : 'none'">
+        <span *ngIf="nameValid" class="error-message">Please enter at least 2 characters.</span>
+      </div>
+
+      
 
       <div>
         <textarea [@divState]="state" #messageField #aboutmeLeft placeholder="Your text" id="message" name="message" required [(ngModel)]="formData.message"
@@ -37,10 +40,16 @@
       </div>
       <div class="arrow-container">
         <div class="arrow-wrapper">
-          <a href="#main"><img class="arrow-up cursor" src="./assets/images/arrow-down.png" alt=""></a>
+          <a (click)="scrollToSection('main')"><img class="arrow-up cursor" src="./assets/images/arrow-down.png" alt=""></a>
       </div>
       </div>
     </form>
   </div>
-
+  <div class="popup" *ngIf="showSuccessPopup">
+    <div class="popup-content">
+      <h3>Message Sent!</h3>
+      <p>Thank you for getting in touch. We'll be in contact shortly.</p>
+    </div>
+  </div>
+  
 </footer>

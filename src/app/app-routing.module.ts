@@ -7,8 +7,7 @@ import { MainComponent } from './main/main.component';
 import { LegalNoticeComponent } from './legal-notice/legal-notice.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/main', pathMatch: 'full' },
-  { path: 'main', component: MainComponent },
+  { path: '', component: MainComponent },
   { path: 'about', component: AboutMeComponent },
   { path: 'skills', component: MySkillsComponent },
   { path: 'portfolio', component: PortfolioComponent },

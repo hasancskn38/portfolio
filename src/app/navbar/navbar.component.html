@@ -1,5 +1,5 @@
 <nav>
-  <div class="logo"><a class="cursor" (click)="scrollToTop()">[HC]</a></div>
+  <div class="logo"><a class="cursor" (click)="scrollToSection('main')">[HC]</a></div>
   <div class="hamburger-menu cursor" (click)="toggleMenu()">
     <span class="bar"></span>
     <span class="bar"></span>
@@ -14,7 +14,7 @@
       <li class="cursor" (click)="scrollToSection('about-section')">
         <a>About Me</a>
       </li>
-      <li class="cursor" (click)="scrollToSection('skills-section')">
+      <li class="cursor" (click)="scrollToSection('skills')">
         <a>My Skills</a>
       </li>
       <li class="cursor"(click)="scrollToSection('portfolio-section')">

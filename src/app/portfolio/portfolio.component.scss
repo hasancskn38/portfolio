@@ -216,6 +216,10 @@ h3 {
       bottom: 0;
     }
 
+    .image-container {
+      filter: none;
+    }
+
     .description-container {
       left: 0;
       margin-top: -50px;
@@ -256,7 +260,6 @@ h3 {
 
     .image-container {
       width: 100%;
-      filter: none;
 
 
       img {
@@ -286,14 +289,28 @@ h3 {
 }
 
 @media(max-width: 480px) {
+
+.portfolio-header {
+
+  p {
+    font-size: 18px;
+  }
+
+  h2 {
+    font-size: 48px;
+  }
+}
+
   .description-container {
 
     h3 {
       font-size: 24px !important;
     }
 
+    }
+
     .languages {
       font-size: 16px;
     }
   }
-}
+

@@ -51,20 +51,21 @@ export class NavbarComponent {
   }
 
   scrollToSection(sectionId: string): void {
-    this.closeMenuNavigation(); // Close the menu first
+    this.closeMenu();
     setTimeout(() => {
-      const section = this.renderer.selectRootElement(`#${sectionId}`);
+      const section = document.getElementById(sectionId);
       if (section) {
         section.scrollIntoView({ behavior: 'smooth' });
       }
-    });
+    }, 10);
   }
+  
 
-  scrollToTop(): void {
-    const section = this.renderer.selectRootElement(`#main`);
-    if (section) {
-      section.scrollIntoView({ behavior: 'smooth' });
-    }
+  scrollToTop(sectionId: string): void {
+      const section = document.getElementById(sectionId);
+      if (section) {
+        section.scrollIntoView({ behavior: 'smooth' });
+      }
   }
   
 }

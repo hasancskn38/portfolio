@@ -1,17 +1,5 @@
-import {
-  Component,
-  ElementRef,
-  Renderer2,
-  AfterViewInit,
-  ViewChild
-} from "@angular/core";
-import {
-  trigger,
-  state,
-  style,
-  animate,
-  transition
-} from "@angular/animations";
+import { Component, ElementRef, Renderer2, AfterViewInit, ViewChild } from "@angular/core";
+import { trigger, state, style, animate, transition } from "@angular/animations";
 import { NgForm } from "@angular/forms";
 
 @Component({
@@ -42,9 +30,7 @@ export class ContactFormularComponent implements AfterViewInit {
   isVisible = false;
   state = "normal";
 
-  @ViewChild("aboutmeLeft", { static: true }) aboutmeLeft:
-    | ElementRef
-    | undefined;
+  @ViewChild("aboutmeLeft", { static: true }) aboutmeLeft: ElementRef | undefined;
 
   constructor(private renderer: Renderer2) {}
 
@@ -53,9 +39,11 @@ export class ContactFormularComponent implements AfterViewInit {
   @ViewChild("messageField") messageField: any;
   @ViewChild("emailField") emailField: any;
   @ViewChild("sendButton") sendButton: any;
-  emailValid = false;
-  textValid = false;
-  nameValid = false;
+  emailValid:boolean = false;
+  textValid:boolean = false;
+  nameValid:boolean = false;
+  showSuccessPopup: boolean = false;
+  isSending: boolean = false;
 
   formData = {
     name: "",
@@ -82,8 +70,18 @@ export class ContactFormularComponent implements AfterViewInit {
     if (!this.isEmailValid()) {
       this.emailValid = true;
     }
-    this.clearFormData();
-    await this.sendFormData();
+
+    if (!this.nameValid && !this.emailValid && !this.textValid) {
+      this.isSending = true;
+      await this.sendFormData();
+      this.isSending = false;
+      this.clearFormData();
+      this.showSuccessPopup = true;
+      // You might want to use a timeout to hide the popup after a certain time
+      setTimeout(() => {
+        this.showSuccessPopup = false;
+      }, 3000); // 5 seconds
+    }
   }
 
   resetValidationFlags() {
@@ -107,31 +105,33 @@ export class ContactFormularComponent implements AfterViewInit {
   }
 
   async sendFormData() {
-    let nameField = this.nameField.nativeElement;
-    let messageField = this.messageField.nativeElement;
-    let emailField = this.messageField.nativeElement;
+    if (!this.isNameInvalid() && this.isEmailValid() && !this.isMessageInvalid()) {
+      let nameField = this.nameField.nativeElement;
+      let messageField = this.messageField.nativeElement;
+      let emailField = this.emailField.nativeElement;
 
-    messageField.disabled = true;
-    nameField.disabled = true;
-    emailField.disabled = true;
+      messageField.disabled = true;
+      nameField.disabled = true;
+      emailField.disabled = true;
 
-    // Animation that the user sees that something is happening
-    messageField.disabled = false;
-    nameField.disabled = false;
-    emailField.disabled = false;
+      // Animation that the user sees that something is happening
+      messageField.disabled = false;
+      nameField.disabled = false;
+      emailField.disabled = false;
 
-    let fd = new FormData();
-    fd.append("name", nameField.value);
-    fd.append("message", messageField.value);
-    fd.append("email", emailField.value);
+      let fd = new FormData();
+      fd.append("name", nameField.value);
+      fd.append("message", messageField.value);
+      fd.append("email", emailField.value);
 
-    await fetch(
-      "https://hasan-coskun.developerakademie.net/portfolio/send_mail/send_mail.php",
-      {
-        method: "POST",
-        body: fd
-      }
-    );
+      await fetch(
+        "https://hasan-coskun.developerakademie.net/portfolio/send_mail/send_mail.php",
+        {
+          method: "POST",
+          body: fd
+        }
+      );
+    }
   }
 
   ngAfterViewInit() {
@@ -164,4 +164,14 @@ export class ContactFormularComponent implements AfterViewInit {
       observer.observe(this.aboutmeLeft.nativeElement);
     }
   }
+  
+  scrollToSection(sectionId: string): void {
+    setTimeout(() => {
+      const section = document.getElementById(sectionId);
+      if (section) {
+        section.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  }
+
 }

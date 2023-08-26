@@ -57,4 +57,13 @@ export class AboutMeComponent implements AfterViewInit {
       observer.observe(this.aboutmeLeft.nativeElement);
     }
   }
+
+  scrollToSection(sectionId: string): void {
+    setTimeout(() => {
+      const section = document.getElementById(sectionId);
+      if (section) {
+        section.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  }
 }

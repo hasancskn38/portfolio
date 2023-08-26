@@ -194,6 +194,10 @@ h3 {
     max-width: 500px; /* Add max-width property */
     margin: 0 auto; /* Center the .project-list horizontally */
 
+    .image-container {
+      filter: none;
+    }
+
     .arrow-down {
       display: none;
     }

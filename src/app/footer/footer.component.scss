@@ -67,3 +67,39 @@ footer {
     }
   }
 }
+
+@media(max-width:550px) {
+
+  .footer-container {
+    width: calc(100vw - 128px);
+    padding: 0 64px;
+
+    .footer-container-top {
+      justify-content: center !important;
+
+      .icon-container {
+      gap: 50px !important;
+      }
+
+      h1 {
+        display: none;
+      }
+    }
+  
+    .footer-container-bottom {
+      justify-content: center !important;
+      gap: 50px !important;
+
+      .legal {
+        display: flex;
+        // flex: inherit;
+      }
+
+
+      p {
+        font-size: 16px !important;
+      }
+    }
+
+  }
+}
