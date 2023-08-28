@@ -12,9 +12,11 @@ body {
   ::-webkit-scrollbar {
    width: 10px;
    background: transparent; /* Optional: just make scrollbar invisible */
+   z-index: 1;
 }
 
 ::-webkit-scrollbar-thumb {
       background: #00BC8F;
       border-radius: 50px ;
+      z-index: 1;
 }

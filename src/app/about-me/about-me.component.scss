@@ -114,6 +114,11 @@ p {
 
 @media (max-width:600px) {
 
+  .aboutme {
+    width: calc(100vw - 48px);
+    padding: 0 24px;
+  }
+
   h2 {
     font-size: 40px;
   }

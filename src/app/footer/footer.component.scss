@@ -77,6 +77,12 @@ footer {
     .footer-container-top {
       justify-content: center !important;
 
+      img {
+        &:hover {
+          transform: translateY(0) !important;
+        }
+      }
+
       .icon-container {
       gap: 50px !important;
       }

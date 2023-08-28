@@ -5,12 +5,9 @@ import { MySkillsComponent } from './my-skills/my-skills.component';
 import { PortfolioComponent } from './portfolio/portfolio.component';
 import { MainComponent } from './main/main.component';
 import { LegalNoticeComponent } from './legal-notice/legal-notice.component';
-
+import { MainWrapperComponent } from './main-wrapper/main-wrapper.component';
 const routes: Routes = [
-  { path: '', component: MainComponent },
-  { path: 'about', component: AboutMeComponent },
-  { path: 'skills', component: MySkillsComponent },
-  { path: 'portfolio', component: PortfolioComponent },
+  { path: '', component: MainWrapperComponent },
   { path: 'legal-notice', component: LegalNoticeComponent },
 ];
 

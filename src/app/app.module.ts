@@ -18,6 +18,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ProjectCrmComponent } from './project-crm/project-crm.component';
 import { ProjectSharkyComponent } from './project-sharky/project-sharky.component';
 import { ProjectPortfolioComponent } from './project-portfolio/project-portfolio.component';
+import { MainWrapperComponent } from './main-wrapper/main-wrapper.component';
 
 const routes: Routes = [
   { path: '', component: MainComponent},
@@ -42,6 +43,7 @@ const routes: Routes = [
     ProjectCrmComponent,
     ProjectSharkyComponent,
     ProjectPortfolioComponent,
+    MainWrapperComponent,
   ],
   imports: [
     BrowserModule,

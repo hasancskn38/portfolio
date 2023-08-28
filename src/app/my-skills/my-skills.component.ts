@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-my-skills',
@@ -6,6 +6,23 @@ import { Component } from '@angular/core';
   styleUrls: ['./my-skills.component.scss']
 })
 export class MySkillsComponent {
+
+  // ... rest of your component code
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event: any): void {
+    this.checkScreenWidth();
+  }
+
+  isTabletOrSmaller(): boolean {
+    return this.screenWidth <= 768;
+  }
+
+  private screenWidth = window.innerWidth;
+
+  private checkScreenWidth(): void {
+    this.screenWidth = window.innerWidth;
+  }
 
   skills: { imageUrl: string; description: string; hoverImageUrl: string; showHover: boolean, cssClass?: string } [] = [
     { imageUrl: './assets/images/angular-icon.png', description: 'Angular', hoverImageUrl: './assets/images/Angular-hover.svg', showHover: false },
