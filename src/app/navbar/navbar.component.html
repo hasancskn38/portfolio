@@ -1,10 +1,11 @@
 <nav>
-  <div class="logo"><a class="cursor" (click)="scrollToSection('main')">[HC]</a></div>
+  <div class="logo"><a href="index.html" class="cursor" (click)="scrollToSection('main')">[HC]</a></div>
   <div class="hamburger-menu cursor" (click)="toggleMenu()">
     <span class="bar"></span>
     <span class="bar"></span>
     <span class="bar"></span>
   </div>
+  <i class="material-icons">menu</i>
 </nav>
 
 <div class="nav-responsive" *ngIf="isNavBottomVisible">
@@ -27,8 +28,8 @@
     <div class="nav-bottom-left">
       <h2>Say Hi !</h2>
       <div class="copy-email">
-      <div class="email-container">
-        <p #emailContent class="email">hasan.coskun38@outlook.de</p>
+       <div class="email-container">
+        <p #emailContent class="email">contact@hasan-coskun.com</p>
       <img (click)="copyToClipboard(emailContent)" title="Click to copy the Email" class="cursor" src="./assets/images/copy.svg" alt="">
       </div>
       <div class="copied-container">
@@ -39,7 +40,7 @@
     <div class="nav-bottom-right">
       <a target="_blank" href="https://www.linkedin.com/in/hasan-coskun-386078230/"><img src="./assets/images/linkedin.png" alt=""></a>
       <a target="_blank" href="https://github.com/hasancskn38"><img src="./assets/images/github.png" alt=""></a>
-      <a target="_blank" href="mailto:hasan.coskun38@outlook.de"><img src="./assets/images/email.png" alt=""></a>
+      <a target="_blank" href="mailto:contact@hasan-coskun.com"><img src="./assets/images/email.png" alt=""></a>
     </div>
   </div>
 

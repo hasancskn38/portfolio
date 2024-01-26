@@ -4,7 +4,7 @@
 
 .error-message {
   color: red;
-  font-size: 18px;
+  font-size: 14px;
   padding-top: 15px;
   display:flex;
   justify-content: start;
@@ -60,7 +60,6 @@ footer {
   form {
     display: flex;
     justify-content: center;
-    // align-items: center;
     flex-direction: column;
     gap: 40px;
   
@@ -78,6 +77,8 @@ footer {
         padding: 24px;
         color: #f8f8ee;
         font-size: 18px;
+        resize: none;
+        display:block;
   
         &::placeholder {
           color: #f8f8ee;
@@ -179,6 +180,12 @@ footer {
   @media(max-width:560px) {
     footer {
       clip-path: polygon(0% 0%, 100% 6%, 100% 100%, 0% 100%);
+      div {
+        input,
+        textarea {
+          width: 100%;
+        }
+      }
     }
   }
 
@@ -192,8 +199,8 @@ footer {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100vw;
-    height: 100vh;
+    width: 100dvw;
+    height: 100dvh;
     color: #fff;
     z-index: 999;
     opacity: 1;

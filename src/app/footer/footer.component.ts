@@ -11,4 +11,8 @@ export class FooterComponent  {
 
   constructor(private renderer: Renderer2, private router:Router) {}
 
+  scrollToTop(): void {
+    window.scrollTo(0, 0);
+  }
+
 }

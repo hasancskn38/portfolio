@@ -28,7 +28,7 @@
   flex-wrap: wrap;
   justify-content: center;
   gap: 100px;
-  padding: 0 128px;
+  padding: 0 24px;
   max-width: 1280px;
   margin: 0 auto; 
 }
@@ -146,7 +146,7 @@ img {
     font-size: 48px;
     padding-bottom: 20px;
 
-    @media (max-width: 1300px) {
+    @media (max-width: 1320px) {
       display: flex;
     }
 }
@@ -190,10 +190,10 @@ h3 {
   margin: 0;
 }
 
-@media (max-width:1280px) {
+@media (max-width:1320px) {
   .project-list {
-    max-width: 500px; /* Add max-width property */
-    margin: 0 auto; /* Center the .project-list horizontally */
+    // max-width: 500px; /* Add max-width property */
+    // margin: 0 auto; /* Center the .project-list horizontally */
 
     .arrow-down {
       display: none;
@@ -247,7 +247,7 @@ h3 {
 
 @media (max-width: 720px) {
   .project-item {
-    min-width: 80vw;
+    // min-width: 80vw;
 
     .image-container {
       width: 100%;

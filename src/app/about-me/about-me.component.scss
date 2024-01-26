@@ -6,31 +6,28 @@
   opacity: 0;
 }
 
-// TODO delete after images 
-.placeholder {
-  border: 1px solid black;
-  height: 200px;
-}
-
 .aboutme {
-  margin: 0 0 100px 0;
-  padding: 0 64px;
+  padding: 0 24px;
+  max-width: 1280px;
+  margin: auto; /* Centers the content */
+  // width: 100%; /* Ensures it doesn't exceed the viewport's width */
+
 }
 
 .aboutme-container {
   display: flex;
   justify-content: center;
-  align-items: center;
-  justify-content: center;
   gap: 64px;
+  width: 100%;
 }
 
 .aboutme-left {
   display: flex;
   flex-direction: column;
   align-items: center;
-  flex: 70;
-  height: 40vh;
+  flex: 60;
+  height: 40dvh;
+
 }
 
 button {
@@ -58,8 +55,12 @@ button {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 30vw;
-  height: 40vh;
+  height: 500px;
+
+  img {
+    flex: 50;
+    height: 100%;
+  }
 }
 
 
@@ -78,6 +79,7 @@ button {
 }
 
 h2 {
+  
   font-size: 56px;
   font-weight: 800;
   transition: all 225ms ease-in-out;
@@ -97,9 +99,31 @@ p {
 @media (max-width:1280px) {
 
   .aboutme {
+    padding: 0 24px;
+
+    h2 {
+      display: flex;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .aboutme-right {
+      width:100%;
+    }
+
+    .aboutme-left {
+
+      p {
+      text-align: justify;
+
+      }
+      
+    }
+
 
     .aboutme-container {
       flex-direction: column;
+      align-items: center;
     }
 
     button {
@@ -117,6 +141,12 @@ p {
   .aboutme {
     width: calc(100vw - 48px);
     padding: 0 24px;
+
+    .aboutme-right img {
+      width: calc(100vw - 48px);
+      height: auto;
+      // margin-bottom: 100px;
+    }
   }
 
   h2 {
@@ -125,6 +155,9 @@ p {
 
   p {
     font-size: 18px;
+  }
+  .arrow-container img {
+    display: none;
   }
 }
 

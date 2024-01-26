@@ -4,21 +4,23 @@
 
     <div class="aboutme-left" #aboutmeLeft>
       <p>
-        Hello, I'm Hasan Coskun, a creative junior Front-End Developer from Cologne, Germany. Skilled in crafting intuitive user experiences and bringing designs to life.
+        Hello, I'm Hasan Coskun, a creative junior Front-End Developer from Cologne, Germany.
         <br>
         <br>
-        Moving on from my role as a chemical plant operator, I've always been captivated by the software driving our processes. This intrigue led me to experiment with building small apps in my free time. Now, as a Junior Front-End Developer, I'm excited to combine my industrial background with coding expertise to craft meaningful and user-centered digital journeys.
+        Moving on from my role as a chemical plant operator, I've always been fascinated by the software driving our processes. <br>
+        This led me to experiment with building small apps in my free time. 
+        Now, as a Junior Front-End Developer, I'm excited to combine my industrial background with coding expertise to create user-centered applications.
         <br>
         <br>
-        If you're seeking an enthusiastic Junior Front-End Developer eager to contribute to dynamic projects, let's connect! Whether it's a project idea, collaboration, or a web development chat, feel free to reach out. Let's collaborate on something extraordinary!
+        Feel free to reach out and let's connect!
       </p>
       <div class="button-container">
         <button class="cursor"><a (click)="scrollToSection('contact-formular')">Let's talk</a></button>
       </div>
     </div>
 
-    <div class="aboutme-right">
-      <div class="placeholder">Das Bild von mir wird die Tage gemacht und anschließend hochgeladen, ich wollte bis dahin schon mal das Feedback was mir schon gegeben werden kann, umsetzen.</div>
+    <div class="aboutme-right" [@divState]="state">
+      <img src="./assets/images/aboutme-image.JPG" alt="" #aboutmeLeft>
     </div>
   </div>
   

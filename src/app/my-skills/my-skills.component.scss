@@ -1,18 +1,16 @@
 .container {
   display: flex;
   justify-content: center;
+  max-width:1280px;
 }
 
 .myskills {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: 0 64px;
-  border: 4px solid black;
-  min-height: 60vh;
-  max-width: min(1280px, 100vw);
-  /* Set the maximum width to 1280px or 100vw, whichever is smaller */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 4px solid black;
+    width: 100%;
 
   h2 {
     position: relative;
@@ -37,7 +35,7 @@
   align-items: center;
   flex-wrap: wrap;
   gap: 125px;
-  padding: 64px;
+  padding: 56px;
 }
 
 .skill-container {
@@ -63,11 +61,8 @@
   }
 }
 
-
-
-
 .icon-container p {
-  font-size: 18px;
+  font-size: 14px;
   font-weight: bold;
 }
 
@@ -108,7 +103,6 @@
 }
 
 /* hover Effect to display the colored icons end */
-
 @media(max-width:768px) {
   .hover-image.default-image {
   display: block; /* Display the colored images by default on tablet or smaller screens */
@@ -120,17 +114,22 @@
 
 @media (max-width:700px) {
   .container {
-    width: calc(100vw - 48px);
-    margin: 0 24px;
 
     .myskills {
         margin: 0;
+        margin-top: 200px;
 
       h2 {
         top: -30px;
         font-size: 46px;
       }
     }
+  }
+}
+
+@media (max-width:600px) {
+  .container {
+    margin-top: 500px;
   }
 }
 
@@ -169,7 +168,7 @@
 
     h2 {
       top: -14px !important;
-      font-size: 20px !important;
+      font-size: 25px !important;
     }
   }
 }

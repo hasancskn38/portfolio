@@ -33,7 +33,6 @@ export class MySkillsComponent {
     { imageUrl: './assets/images/html-icon.png', description: 'HTML', hoverImageUrl: './assets/images/html-hover.svg', showHover: false },
     { imageUrl: './assets/images/js-icon.png', description: 'Javascript', hoverImageUrl: './assets/images/Javascript-hover.svg', showHover: false, cssClass:'javascript-hover'},
     { imageUrl: './assets/images/scrum-icon.png', description: 'Scrum', hoverImageUrl: './assets/images/scrum-hover.svg', showHover: false },
-    { imageUrl: './assets/images/test-icon.png', description: 'Material Design', hoverImageUrl: './assets/images/Material-Design-hover.svg', showHover: false },
     { imageUrl: './assets/images/typescript-icon.png', description: 'Typescript', hoverImageUrl: './assets/images/Typescript-hover.svg', showHover: false },
   ];
 

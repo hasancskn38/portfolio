@@ -14,7 +14,7 @@ nav {
   align-items: center;
   width: calc(100vw - 128px);
   padding: 0 64px;
-  height: 80px;
+  height: 70px;
   transition: all 225ms ease-in-out;
   position: fixed;
   background-color: #f8f8ee;
@@ -23,7 +23,7 @@ nav {
 
 .nav-responsive {
   position: fixed;
-  top: 80px;
+  top: 70px;
   left: 0;
   bottom: 0;
   width: 100vw;
@@ -34,7 +34,7 @@ nav {
 .nav-bottom {
   clip-path: polygon(0% 0%, 100% 35%, 100% 100%, 0% 100%);
   background-color: #000;
-  height: 20%;
+  height: 15%;
   display: flex;
   justify-content: space-between;
   padding: 64px;
@@ -49,7 +49,7 @@ nav {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    height: 35%;
+    padding-top: 30px;
     justify-content: center;
 
     .copy-email {
@@ -126,6 +126,12 @@ p {
   font-weight: 800;
   margin: 0;
   color: #000;
+
+  a {
+    color:black;
+    text-decoration: none;
+  }
+
 }
 
 @keyframes slideInFromLeft {
@@ -273,8 +279,14 @@ ul.show {
     height: 70px;
   }
 
+  .nav-bottom-left {
+    padding: 0;
+  }
+
 
   .nav-responsive {
+    
+    
 
     .ul-container {
       display: flex;
@@ -313,8 +325,20 @@ ul.show {
     }
 
     .nav-bottom {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      // height: 30%;
+      clip-path: polygon(-50% 0%, 100% 30%, 100% 101%, 0% 100%);
 
-      clip-path: polygon(-50% 0%, 100% 45%, 100% 101%, 0% 100%);
+      .nav-bottom-left, .nav-bottom-right {
+        // height: 20%;
+        
+        img {
+          padding: 20px;
+        }
+      }
 
       h2 {
         font-size: 36px;
@@ -327,6 +351,10 @@ ul.show {
 @media(max-width: 560px) {
   nav {
 
+    .nav-bottom {
+      height: 15%;
+    }
+
     .logo {
       font-size: 20px;
     }
@@ -338,6 +366,9 @@ ul.show {
         height: 3px;
       }
     }
+  }
+  .email-container {
+    display: none !important;
   }
 }
 

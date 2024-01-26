@@ -12,7 +12,7 @@ import { NgForm } from "@angular/forms";
         "normal",
         style({
           transform: "translateY(10px)",
-          opacity: "0"
+          opacity: "1"
         })
       ),
       state(

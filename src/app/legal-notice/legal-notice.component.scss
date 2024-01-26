@@ -1,8 +1,10 @@
 main {
-    padding:0 64px;
-    position: absolute;
-    z-index: 5;
+    width: calc(100vw - 128px);
+    padding: 0 64px;
+    position: relative;
+    z-index: 4;
     background-color: #f8f8ee;
+    overflow-x: hidden !important;
 }
 
 .header-container {
@@ -14,5 +16,18 @@ main {
         text-decoration: none;
         color: #000;
         font-size: 36px;
+    }
+}
+
+@media (max-width:500px) {
+    main {
+        width: calc(100vw - 48px);
+        padding: 0 24px;
+    }
+}
+
+@media (max-width:350px) {
+    main {
+        font-size: 10px !important;
     }
 }

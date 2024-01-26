@@ -152,7 +152,7 @@ img {
   font-size: 48px;
   padding-bottom: 20px;
 
-  @media (max-width: 1300px) {
+  @media (max-width: 1320px) {
     display: flex;
   }
 }
@@ -161,6 +161,7 @@ img {
   width: 150px;
   padding: 8px;
   margin: 64px;
+  color:black;
   font-size: 24px;
   border: 3px solid black;
   background-color: transparent;
@@ -196,7 +197,7 @@ h3 {
   margin: 0;
 }
 
-@media (max-width:1280px) {
+@media (max-width:1320px) {
   .project-list {
     max-width: 500px;
     /* Add max-width property */
