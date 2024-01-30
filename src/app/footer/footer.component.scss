@@ -14,6 +14,7 @@ footer {
     display: flex;
     justify-content: space-between;
     flex-direction: column;
+    max-width:1280px;
     width: calc(100vw - 128px); /* Set the width for footer-container-top */
     padding: 0 64px; /* Add some padding to separate content from the edges */
 

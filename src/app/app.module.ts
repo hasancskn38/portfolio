@@ -18,6 +18,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ProjectCrmComponent } from './project-crm/project-crm.component';
 import { ProjectSharkyComponent } from './project-sharky/project-sharky.component';
 import { MainWrapperComponent } from './main-wrapper/main-wrapper.component';
+import {MatInputModule} from '@angular/material/input';
+
 
 const routes: Routes = [
   { path: '', component: MainComponent},
@@ -49,6 +51,8 @@ const routes: Routes = [
     RouterModule.forRoot(routes), // Include RouterModule with empty routes (you can update this later in your app-routing.module.ts)
     AppRoutingModule,
     FormsModule,
+    MatInputModule,
+    ReactiveFormsModule,
     ReactiveFormsModule,
     ClipboardModule,
     BrowserAnimationsModule,

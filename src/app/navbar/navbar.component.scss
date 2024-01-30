@@ -3,7 +3,6 @@ body {
   margin: 0;
   padding: 0;
 }
-
 .cursor {
   cursor: pointer;
 }
@@ -12,13 +11,16 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: calc(100vw - 128px);
-  padding: 0 64px;
-  height: 70px;
-  transition: all 225ms ease-in-out;
+  width: 100dvw;
+  padding: 0 24px;
+  height: 70px; 
   position: fixed;
-  background-color: #f8f8ee;
+  box-sizing: border-box;
+  top: 0;
+  left: 0;
+  right: 0;
   z-index: 9999;
+  background-color: #f8f8ee;
 }
 
 .nav-responsive {
@@ -184,7 +186,7 @@ p {
   li {
     font-size: 80px;
     font-weight: 700;
-    padding: 45px;
+    padding: 24px;
     position: relative;
     text-align: center;
     width: 480px;
@@ -271,22 +273,18 @@ ul.show {
 }
 
 
-@media(max-width:768px) {
+
+@media (max-width: 768px) or (max-height: 600px) {
 
   nav {
-    width: calc(100vw - 48px);
     padding: 0 24px;
-    height: 70px;
   }
 
   .nav-bottom-left {
     padding: 0;
   }
 
-
   .nav-responsive {
-    
-    
 
     .ul-container {
       display: flex;
@@ -303,7 +301,7 @@ ul.show {
       }
 
       li {
-        font-size: 50px;
+        font-size: 40px;
 
         &::before {
           left: 22%;

@@ -2,6 +2,7 @@
   cursor: pointer;
 }
 
+
 .error-message {
   color: red;
   font-size: 14px;
@@ -13,8 +14,12 @@
 footer {
     clip-path: polygon(0% 0%, 100% 10%, 100% 100%, 0% 100%);
     background-color: #000;
-    width: calc(100vw - 128px);
-    padding: 0 64px;
+    padding: 0 24px;
+  }
+
+  .footer-header {
+    max-width:1280px;
+    margin:0 auto;
   }
   
   .footer-header h2 {
@@ -62,8 +67,10 @@ footer {
     justify-content: center;
     flex-direction: column;
     gap: 40px;
+    font-family: 'Syne', 'sans-serif';
   
     div {
+
       input,
       textarea {
         transition: all 225ms ease-in-out;
@@ -83,6 +90,7 @@ footer {
         &::placeholder {
           color: #f8f8ee;
           font-size: 18px;
+          font-family: 'Syne', 'sans-serif' !important;
         }
   
         &:hover {
@@ -98,12 +106,15 @@ footer {
         /* Add specific styles for textarea */
         resize: vertical; /* Allow vertical resizing */
         min-height: 300px; /* Set a minimum height */
+        resize: none;
       }
     }
   
     .button-container {
       display:flex;
       justify-content: center;
+      align-items: center;
+      gap: 30px;
 
       button {
         /* Your existing button styles */
@@ -175,6 +186,12 @@ footer {
     footer {
       clip-path: polygon(0% 0%, 100% 8%, 100% 100%, 0% 100%);
     }
+
+    form {
+      width: 100%;
+      // padding: 0 24px;
+    }
+
   }
 
   @media(max-width:560px) {

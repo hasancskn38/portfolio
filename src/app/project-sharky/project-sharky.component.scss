@@ -3,7 +3,7 @@
   flex-wrap: wrap;
   justify-content: center;
   gap: 100px;
-  padding: 0 128px;
+  padding: 0 24px;
   max-width: 1280px;
   margin: 0 auto;
 }
@@ -114,6 +114,13 @@ img {
   padding-bottom: 50px;
 }
 
+.button-container {
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+
 .number-container-small-screen {
   display: none;
   font-weight: 700;
@@ -126,16 +133,13 @@ img {
 }
 
 .description-container button {
-  width: 150px;
+  min-width: 150px;
   padding: 8px;
-  margin: 64px;
   font-size: 24px;
   border: 3px solid black;
   background-color: transparent;
   transition: all 225ms ease-in-out;
-  font-family: sans-serif;
   font-weight: 400;
-  margin: 24px 24px 0 0;
 
   a {
     text-decoration: none;
@@ -166,10 +170,6 @@ h3 {
 
 @media (max-width:1320px) {
   .project-list {
-    max-width: 500px;
-    /* Add max-width property */
-    margin: 0 auto;
-    /* Center the .project-list horizontally */
 
     .arrow-down {
       display: none;
@@ -208,23 +208,22 @@ h3 {
     transition: none !important;
     opacity: 1 !important;
     z-index: 1 !important;
-    width: 100%;
+    // width: 100%;
 
     .number-container {
       display: none;
     }
 
     .button-container {
-      display: flex;
       justify-content: center;
-      align-items: center;
     }
+    
   }
 }
 
 @media (max-width: 720px) {
   .project-item {
-    min-width: 80vw;
+    // min-width: 80vw;
 
     .image-container {
       width: 100%;
@@ -249,6 +248,8 @@ h3 {
     }
 
     .button-container {
+      justify-content: center;
+
       button {
         font-size: 20px;
       }
