@@ -100,6 +100,15 @@ img {
   opacity: 0;
   transition: left 225ms ease 225ms, opacity 225ms ease;
 
+
+  .button-container {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+
+  }
+
   &.show {
     left: 0;
     opacity: 1;
@@ -114,12 +123,7 @@ img {
   padding-bottom: 50px;
 }
 
-.button-container {
-  display:flex;
-  justify-content: center;
-  align-items: center;
-  gap: 30px;
-}
+
 
 .number-container-small-screen {
   display: none;
@@ -138,7 +142,7 @@ img {
   font-size: 24px;
   border: 3px solid black;
   background-color: transparent;
-  transition: all 225ms ease-in-out;
+  transition: all 225ms ease-in-out !important;
   font-weight: 400;
 
   a {
@@ -147,7 +151,7 @@ img {
   }
 
   &:hover {
-    width: 175px;
+    min-width:175px;
   }
 }
 
