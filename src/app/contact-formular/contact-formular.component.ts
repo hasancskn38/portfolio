@@ -44,6 +44,9 @@ export class ContactFormularComponent implements AfterViewInit {
   nameValid:boolean = false;
   showSuccessPopup: boolean = false;
   isSending: boolean = false;
+  readPolicy: boolean = false;
+  formSubmitted:boolean = false; 
+
 
   formData = {
     name: "",
@@ -51,10 +54,13 @@ export class ContactFormularComponent implements AfterViewInit {
     message: ""
   };
 
-  formSubmitted = false; // Initialize the formSubmitted flag
 
   isEmailValid(): boolean {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.formData.email);
+  }
+
+  scrollToTop(): void {
+    window.scrollTo(0, 0);
   }
 
   async onSubmit(form: NgForm) {
@@ -71,9 +77,9 @@ export class ContactFormularComponent implements AfterViewInit {
       this.emailValid = true;
     }
 
-    if (!this.nameValid && !this.emailValid && !this.textValid) {
+    if (!this.nameValid && !this.emailValid && !this.textValid && this.readPolicy) {
       this.isSending = true;
-      await this.sendFormData();
+      // await this.sendFormData();
       this.isSending = false;
       this.clearFormData();
       this.showSuccessPopup = true;
@@ -82,6 +88,11 @@ export class ContactFormularComponent implements AfterViewInit {
         this.showSuccessPopup = false;
       }, 3000); // 5 seconds
     }
+  }
+
+  onCheckboxChange() {
+    this.readPolicy = !this.readPolicy;
+    console.log(this.readPolicy);
   }
 
   resetValidationFlags() {

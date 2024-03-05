@@ -27,13 +27,23 @@
       </div>
 
       <div>
-        <textarea [@divState]="state" #messageField #aboutmeLeft placeholder="Your text" id="message" name="message"
+        <textarea [@divState]="state" #messageField #aboutmeLeft placeholder="Your message" id="message" name="message"
           required [(ngModel)]="formData.message" #messageInput="ngModel"
           [style.backgroundImage]="formData.message.length > 10 ? 'url(./assets/images/fullfilled.svg)' : 'none'"></textarea>
         <span *ngIf="textValid" class="error-message">Please enter at
           least 10 characters.</span>
       </div>
-      <div class="button-container">
+
+      <div class="privacy-checkbox-container">
+        <input name="readPolicy" [(ngModel)]="readPolicy" (change)="onCheckboxChange()" type="checkbox">
+        <span>
+          I've read the
+          <a routerLink="/legal-notice" (click)="scrollToTop()" style="color:#fff">privacy policy</a>
+          and agree to the processing of my data as outlined.
+        </span>
+      </div>
+
+      <div class="button-container" ngClass="">
         <button #sendButton class="cursor" type="submit">Send message</button>
       </div>
       <div class="arrow-container">
